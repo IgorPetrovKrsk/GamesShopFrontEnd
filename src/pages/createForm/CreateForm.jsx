@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function CreateForm() {
 
-    const adminUserToken = '681a82a8b79d0b7c0da2fc91';
+    const adminUserToken = import.meta.env.VITE_ADMIN_USER_TOKEN;
 
     const nav = useNavigate();
 
