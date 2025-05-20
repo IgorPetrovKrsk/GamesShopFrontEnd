@@ -1,0 +1,8 @@
+.createForm{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+input{
+    margin: 5px;
+}
