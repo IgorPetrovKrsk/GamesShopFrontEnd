@@ -9,7 +9,7 @@ import Login from './pages/Login'
 import NotFound from './pages/NotFound'
 import CreateForm from './pages/createForm/CreateForm'
 import ProtectedRoutes from './components/ProtectedRoutes'
-import AuthPage from './pages/AuthPage.mjs'
+import AuthPage from './pages/AuthPage.jsx'
 
 function App() {
   const [count, setCount] = useState(0)

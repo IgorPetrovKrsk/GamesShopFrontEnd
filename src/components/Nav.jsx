@@ -1,12 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/auth/authContext";
 
 export default function Nav() {
-  const { cookies } = useAuth();
+  const { cookies,logout } = useAuth();
+  const nav = useNavigate();
 
-  function logout() {
+  function onLogout() {
     logout();
+    nav('/');
   }
+
+  console.log(cookies);
+  
 
   return (
     <div style={styles.navbar}>
@@ -17,7 +22,7 @@ export default function Nav() {
       {cookies.token ?
         <>
           <Link to="">Dashboard</Link>
-          <button onClick={logout}>LogOut </button>
+          <button onClick={onLogout}>LogOut </button>
         </>
         : null
       }

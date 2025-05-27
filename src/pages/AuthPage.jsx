@@ -4,5 +4,5 @@ import LoginForm from "../components/Forms/LoginForm";
 
 export default function AuthPage() {
     const [newUser, setNewUser] = useState(false);
-    return newUser ? <RegisterForm setNewUser={setNewUser} /> : <LoginForm setNewUser={setNewUser}/>
+    return newUser ? (<RegisterForm setNewUser={setNewUser} />) : (<LoginForm setNewUser={setNewUser} />);
 }
