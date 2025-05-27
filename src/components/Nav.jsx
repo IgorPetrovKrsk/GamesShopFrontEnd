@@ -8,20 +8,17 @@ export default function Nav() {
   function onLogout() {
     logout();
     nav('/');
-  }
-
-  console.log(cookies);
-  
+  } 
 
   return (
     <div style={styles.navbar}>
       <Link to="/"><img src="src\assets\Games shop logo.png" alt="Games shop logo" width={50} /></Link>
-      <Link to="">←</Link>
+      {/* <Link to="">←</Link> */}
       <Link to="/">HOME</Link>
       <Link to="/auth">Log in</Link>
       {cookies.token ?
         <>
-          <Link to="">Dashboard</Link>
+          <Link to="/dashboard">Dashboard</Link>
           <button onClick={onLogout}>LogOut </button>
         </>
         : null

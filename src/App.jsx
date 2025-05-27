@@ -10,6 +10,7 @@ import NotFound from './pages/NotFound'
 import CreateForm from './pages/createForm/CreateForm'
 import ProtectedRoutes from './components/ProtectedRoutes'
 import AuthPage from './pages/AuthPage.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,7 +23,7 @@ function App() {
         <Route path='/auth' element={<AuthPage />} />
         <Route element={<ProtectedRoutes />}>
           <Route path='/create' element={<CreateForm />} />
-          <Route path='/dashboard' element={<CreateForm />} />
+          <Route path='/dashboard' element={<Dashboard />} />
         </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>
