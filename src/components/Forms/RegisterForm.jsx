@@ -45,6 +45,7 @@ export default function RegisterForm({ setNewUser }) {
             await signup(formData);
             nav("/dashboard");
         } catch (err) {
+            alert("Regsiter Failed, Make sure you dont have an account already");
             console.error(err);
         }
     }
