@@ -1,11 +1,12 @@
 import { createContext, useContext, useMemo } from "react";
 import { useCookies } from "react-cookie";
 import axios from "axios";
+import { userInfo } from "../user/userContext";
 
 const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
-
+    const { setUser, SetCart } = userInfo();
     const [cookies, setCookie, removeCookie] = useCookies();
 
     const baseURL = 'http://localhost:3000/api/user';
@@ -24,6 +25,8 @@ export default function AuthProvider({ children }) {
         ['token'].forEach((cookie) => {
             removeCookie(cookie);
         });
+        setUser(null);
+        SetCart(null);
     }
 
     const value = useMemo(() => ({

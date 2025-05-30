@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
+import GameItem from "../components/GameItem";
 
 export default function Home() {
     const [games, setGames] = useState([{}]);
@@ -22,16 +23,11 @@ export default function Home() {
     }, [])
 
     let loading = () => {
-         <p>Loading data</p> 
+        <p>Loading data</p>
     }
     let loaded = () => {
-        return games.map((it)=>{
-            return <div>
-            <h3>{it.title}</h3>
-            <p>$ {it.price}</p>
-            <p>Description: {it.desc}</p>
-            </div>
-        }) 
+        return games.map((it) => <GameItem gameItem={it} />
+        )
     }
 
     return (

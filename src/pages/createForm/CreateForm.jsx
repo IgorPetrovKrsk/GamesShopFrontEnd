@@ -2,11 +2,13 @@ import { useState } from 'react'
 import styles from './createform.module.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/auth/authContext';
+
 
 export default function CreateForm() {
 
-    const adminUserToken = import.meta.env.VITE_ADMIN_USER_TOKEN;
-
+    //const adminUserToken = import.meta.env.VITE_ADMIN_USER_TOKEN;
+    const { cookies } = useAuth();
     const nav = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -26,12 +28,12 @@ export default function CreateForm() {
         ev.preventDefault();
         try {
             if (formData.title && formData.category && formData.desc && formData.img) {
-                let response = await axios.post('http://localhost:3000/api/game',formData,{
+                let response = await axios.post('http://localhost:3000/api/game', formData, {
                     headers: {
-                        'token':adminUserToken
+                        'x-auth-token': cookies.token
                     }
                 });
-               nav('/');
+                nav('/');
 
             } else {
                 return alert('Please fill all fields');
